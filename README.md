@@ -15,21 +15,19 @@ Video
 
 Screenshots
 
-<p align="left"> <img src="./screenshots/homepage.png" width=370 height=800> </p> <p>&nbsp;</p><p>&nbsp;</p>   <img src="./screenshots/categorypage.png" width=370 height=800>
+<p align="left"> <img src="./screenshots/homepage.png" width=370 height=800></p> <p>&nbsp;</p><img src="./screenshots/categorypage.png" width=370 height=800>
 
-</p><p>&nbsp;</p><p>&nbsp;</p>
-</p><p>&nbsp;</p><p>&nbsp;</p>
-</p><p>&nbsp;</p><p>&nbsp;</p>
-
-
-<p align="left"> <img src="./screenshots/cartpage.png" width=370 height=800> </p> <p>&nbsp;</p><p>&nbsp;</p>  <img src="./screenshots/homepagelight.png" width=370 height=800> 
-
-</p><p>&nbsp;</p><p>&nbsp;</p>
 </p><p>&nbsp;</p><p>&nbsp;</p>
 </p><p>&nbsp;</p><p>&nbsp;</p>
 
 
-<p align="left"> <img src="./screenshots/categorylight.png" width=370 height=800> </p> <p>&nbsp;</p><p>&nbsp;</p> <img src="./screenshots/cartpagelight.png" width=370 height=800>
+<p align="left"> <img src="./screenshots/cartpage.png" width=370 height=800> </p> <p>&nbsp;</p>  <img src="./screenshots/homepagelight.png" width=370 height=800> 
+
+</p><p>&nbsp;</p><p>&nbsp;</p>
+</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+<p align="left"> <img src="./screenshots/categorylight.png" width=370 height=800> </p> <p>&nbsp;</p> <img src="./screenshots/cartpagelight.png" width=370 height=800>
 
  
 
