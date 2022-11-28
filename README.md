@@ -15,8 +15,23 @@ Video
 
 Screenshots
 
-![Simulator Screen Shot - iPhone 11 - 2022-11-28 at 16 06 56](https://user-images.githubusercontent.com/117644494/204282130-0ceb5102-da2c-47ef-ab2e-a2295ecbbda2.png)
-![Simulator Screen Shot - iPhone 11 - 2022-11-28 at 17 19 01](https://user-images.githubusercontent.com/117644494/204282151-2553d9e5-a0d7-40d7-be1a-b6d1b8bcddeb.png)
-![Simulator Screen Shot - iPhone 11 - 2022-11-28 at 16 04 23](https://user-images.githubusercontent.com/117644494/204282155-406e98c9-4db7-431f-a72e-016260663353.png)
-![Simulator Screen Shot - iPhone 11 - 2022-11-28 at 16 06 41](https://user-images.githubusercontent.com/117644494/204282163-c1128fd4-3ed3-480e-a497-bffba8725388.png)
-![Simulator Screen Shot - iPhone 11 - 2022-11-28 at 16 06 12](https://user-images.githubusercontent.com/117644494/204282167-849a74a3-e6ba-46ce-affa-91ab9982234e.png)
+<p align="left"> <img src="./screenshots/homepage.png" width=370 height=800> </p> <p>&nbsp;</p><p>&nbsp;</p>   <img src="./screenshots/categorypage.png" width=370 height=800>
+
+</p><p>&nbsp;</p><p>&nbsp;</p>
+</p><p>&nbsp;</p><p>&nbsp;</p>
+</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+<p align="left"> <img src="./screenshots/cartpage.png" width=370 height=800> </p> <p>&nbsp;</p><p>&nbsp;</p>  <img src="./screenshots/homepagelight.png" width=370 height=800> 
+
+</p><p>&nbsp;</p><p>&nbsp;</p>
+</p><p>&nbsp;</p><p>&nbsp;</p>
+</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+<p align="left"> <img src="./screenshots/categorylight.png" width=370 height=800> </p> <p>&nbsp;</p><p>&nbsp;</p> <img src="./screenshots/cartpagelight.png" width=370 height=800>
+
+ 
+
+
+
