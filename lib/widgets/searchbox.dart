@@ -22,18 +22,18 @@ class SearchBox extends StatelessWidget {
         suffix: IconButton(
           onPressed: () {},
           icon: Icon(Icons.mic_none_rounded),
-          color: Colors.white,
+          color: Theme.of(context).selectedRowColor,
         ),
-        prefix: const Padding(
+        prefix: Padding(
           padding: EdgeInsets.fromLTRB(15.0, 6.0, 9.0, 6.0),
           child: Icon(
             Icons.search,
-            color: Colors.white,
+            color: Theme.of(context).selectedRowColor,
           ),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),
-          color: const Color(0xff232327),
+          color: Theme.of(context).primaryColorLight,
         ),
       ),
     );

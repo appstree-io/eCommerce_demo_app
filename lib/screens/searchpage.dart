@@ -39,13 +39,13 @@ class _SearchPageState extends State<SearchPage> {
                     Container(
                       height: 57,
                       width: 57,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Color(0xff232327),
+                        color: Theme.of(context).primaryColorLight,
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.shopping_cart_outlined,
-                        color: Colors.white,
+                        color: Theme.of(context).selectedRowColor,
                       ),
                     ),
                   ],
@@ -62,7 +62,7 @@ class _SearchPageState extends State<SearchPage> {
                   style: GoogleFonts.poppins(
                     fontSize: 22,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xffFFFFFF),
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -97,7 +97,7 @@ class _SearchPageState extends State<SearchPage> {
                               height: 165,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(14),
-                                color: Color(0xff232327),
+                                color: Theme.of(context).primaryColorLight,
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -119,7 +119,10 @@ class _SearchPageState extends State<SearchPage> {
                                     height: 5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 18),
+                                    padding: const EdgeInsets.only(
+                                      left: 10,
+                                      top: 5,
+                                    ),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -130,7 +133,8 @@ class _SearchPageState extends State<SearchPage> {
                                                   .toString(),
                                           style: GoogleFonts.poppins(
                                             fontSize: 12,
-                                            color: Color(0xffE1E1E1),
+                                            color:
+                                                Theme.of(context).primaryColor,
                                           ),
                                         ),
                                       ],

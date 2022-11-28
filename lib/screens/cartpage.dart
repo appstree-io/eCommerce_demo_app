@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:ecommerce_app/services/provider_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,54 @@ class _CartPageState extends State<CartPage> {
       appBar: AppBar(
         title: Text('Cart Items'),
         backgroundColor: Colors.blueAccent,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 10,
+              right: 5,
+            ),
+            child: Stack(children: [
+              Positioned(
+                left: 30,
+                bottom: 0,
+                top: 10,
+                child: Badge(
+                  badgeContent: SizedBox(
+                    child:
+                        Consumer<CartProvider>(builder: (context, cart, child) {
+                      return Center(
+                        child: Text(
+                          "${cart.count}",
+                          style: GoogleFonts.poppins(
+                            color: Color(0xffFFFFFF),
+                            fontSize: 12,
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+              ),
+              InkWell(
+                child: Container(
+                  height: 35,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    // color: Color(0xff232327),
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.shopping_cart_outlined,
+                      size: 24,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -29,7 +78,7 @@ class _CartPageState extends State<CartPage> {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 21),
                   child: Card(
-                    color: Color(0xff232327),
+                    color: Theme.of(context).primaryColorLight,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24.0),
                     ),
@@ -73,7 +122,7 @@ class _CartPageState extends State<CartPage> {
                                   style: GoogleFonts.poppins(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
-                                    color: Color(0xffE1E1E1),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
@@ -100,16 +149,16 @@ class _CartPageState extends State<CartPage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  const Icon(
+                                  Icon(
                                     Icons.attach_money_rounded,
-                                    color: Color(0xffFFFFFF),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                   Text(
                                     currentcartitem.price.toString(),
                                     style: GoogleFonts.poppins(
                                       fontSize: 17,
                                       fontWeight: FontWeight.w500,
-                                      color: Color(0xffFFFFFF),
+                                      color: Theme.of(context).primaryColor,
                                     ),
                                   ),
                                   const SizedBox(
@@ -127,9 +176,9 @@ class _CartPageState extends State<CartPage> {
                                     child: Container(
                                       decoration: const BoxDecoration(
                                           shape: BoxShape.circle),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.delete_rounded,
-                                        color: Color(0xffFFFFFF),
+                                        color: Theme.of(context).primaryColor,
                                       ),
                                     ),
                                   )

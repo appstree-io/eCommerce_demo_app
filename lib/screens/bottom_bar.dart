@@ -34,7 +34,8 @@ class _BottomBarState extends State<BottomBar> {
       floatingActionButton: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.black, width: 5),
+          border:
+              Border.all(color: Theme.of(context).backgroundColor, width: 5),
         ),
         child: FloatingActionButton(
           elevation: 4,
@@ -51,9 +52,9 @@ class _BottomBarState extends State<BottomBar> {
         decoration:
             const BoxDecoration(borderRadius: BorderRadius.only(), boxShadow: [
           BoxShadow(
-            color: Colors.black54,
+            color: Color(0xff000000),
             blurRadius: 15,
-            spreadRadius: 10,
+            spreadRadius: 3,
           ),
         ]),
         child: ClipRRect(
@@ -62,7 +63,7 @@ class _BottomBarState extends State<BottomBar> {
             topRight: Radius.circular(24.0),
           ),
           child: BottomNavigationBar(
-            backgroundColor: Color(0xff232327),
+            backgroundColor: Theme.of(context).bottomAppBarColor,
             elevation: 0,
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentindex,
@@ -74,11 +75,11 @@ class _BottomBarState extends State<BottomBar> {
             selectedFontSize: 0,
             unselectedFontSize: 0,
             iconSize: 22,
-            items: const [
+            items: [
               BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage("assets/home.png"),
-                  color: Color(0xffC4C4C4),
+                  color: Theme.of(context).selectedRowColor,
                 ),
                 label: '',
                 activeIcon: ImageIcon(
@@ -89,7 +90,7 @@ class _BottomBarState extends State<BottomBar> {
               BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage("assets/search.png"),
-                  color: Color(0xffC4C4C4),
+                  color: Theme.of(context).selectedRowColor,
                 ),
                 label: '',
                 activeIcon: ImageIcon(
@@ -105,7 +106,7 @@ class _BottomBarState extends State<BottomBar> {
               BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage("assets/fav.png"),
-                  color: Color(0xffC4C4C4),
+                  color: Theme.of(context).selectedRowColor,
                 ),
                 activeIcon: ImageIcon(
                   AssetImage("assets/fav.png"),
@@ -116,7 +117,7 @@ class _BottomBarState extends State<BottomBar> {
               BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage("assets/account.png"),
-                  color: Color(0xffC4C4C4),
+                  color: Theme.of(context).selectedRowColor,
                 ),
                 activeIcon: ImageIcon(
                   AssetImage("assets/account.png"),

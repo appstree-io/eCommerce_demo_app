@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';
+import '../widgets/toggle_theme.dart';
 
 class Appbar extends StatelessWidget {
   const Appbar({
@@ -18,10 +19,10 @@ class Appbar extends StatelessWidget {
       snap: false,
       expandedHeight: 100,
       collapsedHeight: 95,
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
-          color: Colors.black,
+          color: Theme.of(context).scaffoldBackgroundColor,
         ),
         title: SizedBox(
           height: 120,
@@ -37,7 +38,18 @@ class Appbar extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      // Container(
+                      //     height: 10,
+                      //     width: 5,
+                      //     padding: EdgeInsets.fromLTRB(
+                      //       5,
+                      //       2,
+                      //       0,
+                      //       2,
+                      //     ),
+                      //     child: ToggleThemeWidget()),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -50,7 +62,7 @@ class Appbar extends StatelessWidget {
                             child: Text(
                               'Hello,',
                               style: GoogleFonts.poppins(
-                                color: const Color(0xffC4C4C4),
+                                color: Theme.of(context).primaryColorDark,
                                 fontSize: 13,
                               ),
                             ),
@@ -66,7 +78,7 @@ class Appbar extends StatelessWidget {
                             child: Text(
                               'Hari Parasad',
                               style: GoogleFonts.poppins(
-                                color: Color(0xffFFFFFF),
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 18,
                               ),
                               textAlign: TextAlign.end,
@@ -78,22 +90,20 @@ class Appbar extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(
-                        width: 50,
+                        width: 30,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
                           right: 0,
-                          top: 45,
+                          top: 53,
                           bottom: 0,
                         ),
                         child: Stack(children: [
                           Positioned(
                             left: 30,
-                            bottom: 6,
+                            bottom: 7,
                             child: Badge(
                               badgeContent: SizedBox(
-                                // height: 10,
-                                //width: 10,
                                 child: Consumer<CartProvider>(
                                     builder: (context, cart, child) {
                                   return Center(
@@ -124,10 +134,10 @@ class Appbar extends StatelessWidget {
                                         builder: (context) => const CartPage()),
                                   );
                                 },
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.shopping_cart_outlined,
                                   size: 20,
-                                  color: Color(0xffFFFFFF),
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                             ),

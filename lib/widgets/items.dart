@@ -90,6 +90,7 @@ class Item3 extends StatelessWidget {
               Text(
                 '55%',
                 style: GoogleFonts?.raleway(
+                  color: Color(0xff000000),
                   fontSize: 38,
                   fontWeight: FontWeight.bold,
                 ),
@@ -100,6 +101,7 @@ class Item3 extends StatelessWidget {
               Text(
                 'Discount',
                 style: GoogleFonts?.poppins(
+                  color: Color(0xff000000),
                   fontSize: 21.49,
                 ),
               ),
@@ -109,6 +111,7 @@ class Item3 extends StatelessWidget {
               Text(
                 'Wireless Noise',
                 style: GoogleFonts?.poppins(
+                  color: Color(0xff000000),
                   fontSize: 14.59,
                 ),
               ),

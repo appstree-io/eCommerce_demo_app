@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/model/cart_product_modal.dart';
 import 'package:ecommerce_app/model/product_modal.dart';
 import 'package:ecommerce_app/services/provider_cart.dart';
+import 'package:ecommerce_app/widgets/toggle_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,6 +44,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: CustomScrollView(
           slivers: [
             const Appbar(),
+            SliverToBoxAdapter(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Toggle Light / Dark Theme ',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  const ToggleThemeWidget(),
+                ],
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 17,
+              ),
+            ),
             const SliverToBoxAdapter(
               child: SearchBox(),
             ),
@@ -63,7 +84,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: Text(
                 'Featured',
                 style: GoogleFonts.poppins(
-                  color: Color(0xffFFFFFF),
+                  color: Theme.of(context).primaryColor,
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                 ),
@@ -86,7 +107,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: Text(
                 'All',
                 style: GoogleFonts.poppins(
-                  color: const Color(0xffFFFFFF),
+                  color: Theme.of(context).primaryColor,
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                 ),
@@ -121,7 +142,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 21),
                   child: Card(
-                    color: Color(0xff232327),
+                    color: Theme.of(context).primaryColorLight,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24.0),
                     ),
@@ -166,7 +187,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   style: GoogleFonts.poppins(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
-                                    color: Color(0xffE1E1E1),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
@@ -185,7 +206,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   style: GoogleFonts.poppins(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
-                                    color: Color(0xffC4C4C4),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
@@ -195,16 +216,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  const Icon(
+                                  Icon(
                                     Icons.attach_money_rounded,
-                                    color: Color(0xffFFFFFF),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                   Text(
                                     snapshot.data![index].price.toString(),
                                     style: GoogleFonts.poppins(
                                       fontSize: 17,
                                       fontWeight: FontWeight.w500,
-                                      color: Color(0xffFFFFFF),
+                                      color: Theme.of(context).primaryColor,
                                     ),
                                   ),
                                   const SizedBox(
@@ -227,9 +248,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     child: Container(
                                       decoration: const BoxDecoration(
                                           shape: BoxShape.circle),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.shopping_cart_outlined,
-                                        color: Color(0xffFFFFFF),
+                                        color: Theme.of(context).primaryColor,
                                       ),
                                     ),
                                   )
@@ -293,7 +314,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color: Color(0xff232327),
+                      color: Theme.of(context).primaryColorLight,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -324,7 +345,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     snapshot.data![index].prodname.toString(),
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
-                                  color: Color(0xffE1E1E1),
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                             ],
@@ -335,9 +356,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.attach_money_rounded,
-                                color: Colors.white,
+                                color: Theme.of(context).primaryColor,
                                 size: 20,
                               ),
                               const SizedBox(
@@ -347,7 +368,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 snapshot.data![index].price.toString(),
                                 style: GoogleFonts.poppins(
                                   fontSize: 17,
-                                  color: Colors.white,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               const SizedBox(
@@ -371,9 +392,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 child: Container(
                                   foregroundDecoration: const BoxDecoration(
                                       shape: BoxShape.circle),
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.shopping_cart_outlined,
-                                    color: Color(0xffFFFFFF),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
