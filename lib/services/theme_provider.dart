@@ -9,6 +9,10 @@ class ThemeProvider extends ChangeNotifier {
   }
 }
 
+class ButtonTheme {
+  static final buttontheme = ButtonThemeData();
+}
+
 class MyThemes {
   static final darktheme = ThemeData(
     scaffoldBackgroundColor: Color(0xff151515),

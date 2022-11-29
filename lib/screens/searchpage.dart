@@ -151,7 +151,13 @@ class _SearchPageState extends State<SearchPage> {
                   } else if (snapshot.hasError) {
                     return const SliverToBoxAdapter(child: Text("Error"));
                   }
-                  return const SliverToBoxAdapter(child: Text("Loading..."));
+                  return SliverToBoxAdapter(
+                      child: Center(
+                    child: CircularProgressIndicator.adaptive(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      strokeWidth: 50,
+                    ),
+                  ));
                 },
               )
             ],

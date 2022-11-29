@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';
-import '../widgets/toggle_theme.dart';
 
 class Appbar extends StatelessWidget {
   const Appbar({
@@ -40,16 +39,6 @@ class Appbar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // Container(
-                      //     height: 10,
-                      //     width: 5,
-                      //     padding: EdgeInsets.fromLTRB(
-                      //       5,
-                      //       2,
-                      //       0,
-                      //       2,
-                      //     ),
-                      //     child: ToggleThemeWidget()),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../screens/detail_page.dart';
 import '../widgets/sliver_appbar.dart';
 import '../widgets/items.dart';
 import '../services/api_handler.dart';
@@ -141,124 +142,138 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     orElse: (() => cart));
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 21),
-                  child: Card(
-                    color: Theme.of(context).primaryColorLight,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                    child: Container(
-                      width: 404,
-                      height: 116,
-                      foregroundDecoration: BoxDecoration(),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 107,
-                            height: 115,
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(24),
-                                bottomLeft: Radius.circular(24),
-                              ),
-                              child: Image.network(
-                                snapshot.data![index].thumbnail,
-                                fit: BoxFit.fill,
+                  child: InkWell(
+                    onTap: (() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                            productid: snapshot.data![index].id,
+                          ),
+                        ),
+                      );
+                    }),
+                    child: Card(
+                      color: Theme.of(context).primaryColorLight,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24.0),
+                      ),
+                      child: Container(
+                        width: 404,
+                        height: 116,
+                        foregroundDecoration: BoxDecoration(),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 107,
+                              height: 115,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(24),
+                                  bottomLeft: Radius.circular(24),
+                                ),
+                                child: Image.network(
+                                  snapshot.data![index].thumbnail,
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 14,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              SizedBox(
-                                height: 20,
-                                width: 160,
-                                child: Text(
-                                  snapshot.data![index].prodname ??
-                                      snapshot.data![index].prodname.toString(),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.fade,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
+                            const SizedBox(
+                              width: 14,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(
+                                  height: 15,
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              SizedBox(
-                                width: 220,
-                                height: 40,
-                                child: Text(
-                                  snapshot.data![index].description ??
-                                      snapshot.data![index].description
-                                          .toString(),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.fade,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.attach_money_rounded,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                  Text(
-                                    snapshot.data![index].price.toString(),
+                                SizedBox(
+                                  height: 20,
+                                  width: 160,
+                                  child: Text(
+                                    snapshot.data![index].prodname ??
+                                        snapshot.data![index].prodname
+                                            .toString(),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
                                     style: GoogleFonts.poppins(
-                                      fontSize: 17,
+                                      fontSize: 13,
                                       fontWeight: FontWeight.w500,
                                       color: Theme.of(context).primaryColor,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    width: 100,
+                                ),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                SizedBox(
+                                  width: 220,
+                                  height: 40,
+                                  child: Text(
+                                    snapshot.data![index].description ??
+                                        snapshot.data![index].description
+                                            .toString(),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.fade,
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w500,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
                                   ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (cartitems.contains(CartItem)) {
-                                        Fluttertoast.showToast(
-                                            msg: 'Item already exists in cart');
-                                      } else {
-                                        Fluttertoast.showToast(
-                                            msg: 'Item added to cart');
-                                        context
-                                            .read<CartProvider>()
-                                            .addtocart(cart);
-                                      }
-                                    },
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                          shape: BoxShape.circle),
-                                      child: Icon(
-                                        Icons.shopping_cart_outlined,
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.attach_money_rounded,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                    Text(
+                                      snapshot.data![index].price.toString(),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w500,
                                         color: Theme.of(context).primaryColor,
                                       ),
                                     ),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
+                                    const SizedBox(
+                                      width: 100,
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        if (cartitems.contains(CartItem)) {
+                                          Fluttertoast.showToast(
+                                              msg:
+                                                  'Item already exists in cart');
+                                        } else {
+                                          Fluttertoast.showToast(
+                                              msg: 'Item added to cart');
+                                          context
+                                              .read<CartProvider>()
+                                              .addtocart(cart);
+                                        }
+                                      },
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                            shape: BoxShape.circle),
+                                        child: Icon(
+                                          Icons.shopping_cart_outlined,
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -271,7 +286,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         } else if (snapshot.hasError) {
           return const SliverToBoxAdapter(child: Text("Error"));
         }
-        return const SliverToBoxAdapter(child: Text("Loading..."));
+        return SliverToBoxAdapter(
+          child: Center(
+            child: CircularProgressIndicator.adaptive(
+              backgroundColor: Theme.of(context).primaryColor,
+              strokeWidth: 50,
+            ),
+          ),
+        );
       },
     );
   }
@@ -309,99 +331,111 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     15.78,
                     15,
                   ),
-                  child: Container(
-                    width: 154,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: Theme.of(context).primaryColorLight,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(18),
-                          child: Container(
-                            height: 140,
-                            width: 154,
-                            child: Image(
-                              image:
-                                  NetworkImage(snapshot.data![index].thumbnail),
-                              fit: BoxFit.fill,
+                  child: InkWell(
+                    onTap: (() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                            productid: snapshot.data![index].id,
+                          ),
+                        ),
+                      );
+                    }),
+                    child: Container(
+                      width: 154,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Theme.of(context).primaryColorLight,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(18),
+                            child: Container(
+                              height: 140,
+                              width: 154,
+                              child: Image(
+                                image: NetworkImage(
+                                    snapshot.data![index].thumbnail),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                snapshot.data?[index].prodname ??
-                                    snapshot.data![index].prodname.toString(),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                            ],
+                          const SizedBox(
+                            height: 5,
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 12),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.attach_money_rounded,
-                                color: Theme.of(context).primaryColor,
-                                size: 20,
-                              ),
-                              const SizedBox(
-                                width: 0,
-                              ),
-                              Text(
-                                snapshot.data![index].price.toString(),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 17,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 35,
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  if (cartitems.contains(CartItem)) {
-                                    Fluttertoast.showToast(
-                                        msg: 'Item already exists in cart');
-                                  } else {
-                                    Fluttertoast.showToast(
-                                        msg: 'Item added to cart');
-                                    context
-                                        .read<CartProvider>()
-                                        .addtocart(cart);
-                                  }
-                                },
-                                borderRadius: BorderRadius.circular(40),
-                                splashColor: Colors.white,
-                                child: Container(
-                                  foregroundDecoration: const BoxDecoration(
-                                      shape: BoxShape.circle),
-                                  child: Icon(
-                                    Icons.shopping_cart_outlined,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 18),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  snapshot.data?[index].prodname ??
+                                      snapshot.data![index].prodname.toString(),
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
                                     color: Theme.of(context).primaryColor,
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(left: 12),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.attach_money_rounded,
+                                  color: Theme.of(context).primaryColor,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 0,
+                                ),
+                                Text(
+                                  snapshot.data![index].price.toString(),
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 17,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 35,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    if (cartitems.contains(CartItem)) {
+                                      Fluttertoast.showToast(
+                                          msg: 'Item already exists in cart');
+                                    } else {
+                                      Fluttertoast.showToast(
+                                          msg: 'Item added to cart');
+                                      context
+                                          .read<CartProvider>()
+                                          .addtocart(cart);
+                                    }
+                                  },
+                                  borderRadius: BorderRadius.circular(40),
+                                  splashColor: Colors.white,
+                                  child: Container(
+                                    foregroundDecoration: const BoxDecoration(
+                                        shape: BoxShape.circle),
+                                    child: Icon(
+                                      Icons.shopping_cart_outlined,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -411,7 +445,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         } else if (snapshot.hasError) {
           return const Text("Error");
         }
-        return Text("Loading...");
+        return Center(
+          child: CircularProgressIndicator.adaptive(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            strokeWidth: 50,
+          ),
+        );
       },
     );
   }

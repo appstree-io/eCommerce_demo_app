@@ -17,8 +17,12 @@ class _CartPageState extends State<CartPage> {
     final cartitems = context.watch<CartProvider>().cartProd;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart Items'),
-        backgroundColor: Colors.blueAccent,
+        title: Text(
+          'Cart Items',
+          style: GoogleFonts.poppins(color: Theme.of(context).primaryColor),
+        ),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        leading: BackButton(color: Theme.of(context).primaryColor),
         actions: [
           Padding(
             padding: const EdgeInsets.only(
