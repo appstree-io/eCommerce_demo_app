@@ -10,24 +10,29 @@ https://www.figma.com/file/pseDCW8iNpIFlBhW2NXgua/Ecommerce-App-UI-Kit-(Communit
 
 Video
 
-![Simulator Screen Recording - iPhone 11 - 2022-11-28 at 17 48 59](https://user-images.githubusercontent.com/117644494/204281978-5d6d6e75-328a-4e48-b476-a06af6615fbe.gif)
+
+![Simulator Screen Recording - iPhone 11 - 2022-12-01 at 11 09 17](https://user-images.githubusercontent.com/117644494/204980855-ad264e84-49b8-419d-aea8-e22fb7f6ac61.gif)
+
 
 
 Screenshots
 
-<p align="left"> <img src="./screenshots/homepage.png" width=370 height=800></p> <p>&nbsp;</p><img src="./screenshots/categorypage.png" width=370 height=800>
+<p align="left"> <img src="./screenshots/homepage.png" width=270 height=600></p> <p>&nbsp;</p><img src="./screenshots/categorypage.png" width=270 height=600>
 
 <p>&nbsp;</p>
 
 
-<p align="left"> <img src="./screenshots/cartpage.png" width=370 height=800> </p> <p>&nbsp;</p>  <img src="./screenshots/homepagelight.png" width=370 height=800> 
+<p align="left"> <img src="./screenshots/cartpagedark.png" width=270 height=600> </p> <p>&nbsp;</p>  <img src="./screenshots/detailpagedark.png" width=270 height=600> 
 
 <p>&nbsp;</p>
 
 
-<p align="left"> <img src="./screenshots/categorylight.png" width=370 height=800> </p> <p>&nbsp;</p> <img src="./screenshots/cartpagelight.png" width=370 height=800>
+<p align="left"> <img src="./screenshots/homepagelight.png" width=270 height=600> </p> <p>&nbsp;</p> <img src="./screenshots/categorypagelight.png" width=270 height=600>
 
- 
+ <p>&nbsp;</p>
+
+
+<p align="left"> <img src="./screenshots/cartpagelight.png" width=270 height=600> </p> <p>&nbsp;</p>  <img src="./screenshots/detailpagelight.png" width=270 height=600> 
 
 
 
