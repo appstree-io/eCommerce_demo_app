@@ -17,7 +17,7 @@ Video
 
 Screenshots
 
-<p align="left"> <img src="./screenshots/homepage.png" width=270 height=600></p> <p>&nbsp;</p><img src="./screenshots/categorypage.png" width=270 height=600>
+<p align="left"> <img src="./screenshots/homepagedark.png" width=270 height=600></p> <p>&nbsp;</p><img src="./screenshots/categorypagedark.png" width=270 height=600>
 
 <p>&nbsp;</p>
 
