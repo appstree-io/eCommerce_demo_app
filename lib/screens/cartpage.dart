@@ -1,8 +1,11 @@
 import 'package:badges/badges.dart';
 import 'package:ecommerce_app/services/provider_cart.dart';
+import 'package:ecommerce_app/widgets/appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../widgets/appbar.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -16,61 +19,80 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     final cartitems = context.watch<CartProvider>().cartProd;
     return Scaffold(
-      appBar: AppBar(
+      bottomNavigationBar: Container(
+        //height: 80,
+        child: BottomAppBar(
+          child: Container(
+            padding: EdgeInsets.fromLTRB(5, 10, 0, 0),
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Total Items: ',
+                        style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Consumer<CartProvider>(builder: (context, cart, child) {
+                        return Row(children: [
+                          Text(
+                            '${cart.totalitems}',
+                            style: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 19,
+                            ),
+                          ),
+                        ]);
+                      }),
+                    ]),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Total Price:     ',
+                        style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      Consumer<CartProvider>(builder: (context, cart, child) {
+                        return Row(children: [
+                          Text(
+                            "\$ " '${cart.totalAmount}',
+                            style: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 19,
+                            ),
+                          ),
+                        ]);
+                      }),
+                    ]),
+              ],
+            ),
+          ),
+        ),
+      ),
+      appBar: AppBarCustom(
         title: Text(
           'Cart Items',
-          style: GoogleFonts.poppins(color: Theme.of(context).primaryColor),
-        ),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: BackButton(color: Theme.of(context).primaryColor),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 10,
-              right: 5,
-            ),
-            child: Stack(children: [
-              Positioned(
-                left: 30,
-                bottom: 0,
-                top: 10,
-                child: Badge(
-                  badgeContent: SizedBox(
-                    child:
-                        Consumer<CartProvider>(builder: (context, cart, child) {
-                      return Center(
-                        child: Text(
-                          "${cart.count}",
-                          style: GoogleFonts.poppins(
-                            color: Color(0xffFFFFFF),
-                            fontSize: 12,
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-              ),
-              InkWell(
-                child: Container(
-                  height: 35,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    // color: Color(0xff232327),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.shopping_cart_outlined,
-                      size: 24,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ),
-              ),
-            ]),
+          style: GoogleFonts.poppins(
+            fontSize: 20,
+            color: Theme.of(context).primaryColor,
           ),
-        ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -79,6 +101,7 @@ class _CartPageState extends State<CartPage> {
             SliverList(
               delegate: SliverChildBuilderDelegate(((context, index) {
                 final currentcartitem = cartitems[index];
+
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 21),
                   child: Card(
@@ -93,16 +116,16 @@ class _CartPageState extends State<CartPage> {
                       child: Row(
                         children: [
                           SizedBox(
-                            width: 107,
+                            width: 140,
                             height: 115,
                             child: ClipRRect(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(24),
                                 bottomLeft: Radius.circular(24),
                               ),
                               child: Image.network(
                                 currentcartitem.image,
-                                fit: BoxFit.fill,
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
@@ -118,40 +141,95 @@ class _CartPageState extends State<CartPage> {
                               ),
                               SizedBox(
                                 height: 20,
-                                width: 160,
+                                width: 154,
                                 child: Text(
                                   currentcartitem.name,
                                   maxLines: 1,
-                                  overflow: TextOverflow.fade,
+                                  overflow: TextOverflow.visible,
                                   style: GoogleFonts.poppins(
-                                    fontSize: 13,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                     color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
                               const SizedBox(
-                                height: 4,
+                                height: 5,
                               ),
                               SizedBox(
-                                width: 220,
-                                height: 40,
-                                child: Text(
-                                  currentcartitem.description,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.fade,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xffC4C4C4),
-                                  ),
-                                ),
+                                  width: 220,
+                                  height: 40,
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Quantity:  ',
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .primaryColorDark,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 28,
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          if (currentcartitem.qty == 1) {
+                                            Fluttertoast.showToast(
+                                                msg:
+                                                    'Quantity cannot be less than one');
+                                          } else {
+                                            context
+                                                .read<CartProvider>()
+                                                .qtyminus(index);
+                                          }
+                                        },
+                                        icon: const Icon(Icons.remove),
+                                      ),
+                                      const SizedBox(
+                                        width: 4,
+                                      ),
+                                      Consumer<CartProvider>(
+                                          builder: (context, cart, child) {
+                                        return Text(
+                                          "${cart.quantity(index)}",
+                                          style: GoogleFonts.poppins(
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            fontSize: 14,
+                                          ),
+                                        );
+                                      }),
+                                      const SizedBox(
+                                        width: 4,
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          if (currentcartitem.qty > 9) {
+                                            Fluttertoast.showToast(
+                                                msg:
+                                                    'Quantity cannot be more than ten');
+                                          } else {
+                                            context
+                                                .read<CartProvider>()
+                                                .qtyplus(index);
+                                          }
+                                        },
+                                        icon: const Icon(
+                                          Icons.add,
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                              const SizedBox(
+                                width: 5,
                               ),
                               const SizedBox(
                                 height: 5,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     Icons.attach_money_rounded,

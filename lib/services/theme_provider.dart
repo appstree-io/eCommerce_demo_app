@@ -10,29 +10,29 @@ class ThemeProvider extends ChangeNotifier {
 }
 
 class ButtonTheme {
-  static final buttontheme = ButtonThemeData();
+  static final buttontheme = const ButtonThemeData();
 }
 
 class MyThemes {
   static final darktheme = ThemeData(
-    scaffoldBackgroundColor: Color(0xff151515),
+    scaffoldBackgroundColor: const Color(0xff151515),
     primaryColor: Colors.white,
-    bottomAppBarColor: Color(0xff232327),
-    backgroundColor: Color(0xff000000),
-    primaryColorLight: Color(0xff232327),
-    selectedRowColor: Color(0xffC4C4C4),
-    primaryColorDark: Color(0xffC4C4C4),
-    colorScheme: ColorScheme.dark(),
+    bottomAppBarColor: const Color(0xff232327),
+    backgroundColor: const Color(0xff000000),
+    primaryColorLight: const Color(0xff232327),
+    selectedRowColor: const Color(0xffC4C4C4),
+    primaryColorDark: const Color(0xffC4C4C4),
+    colorScheme: const ColorScheme.dark(),
   );
 
   static final lighttheme = ThemeData(
-    scaffoldBackgroundColor: Color(0xffF5F5F5),
-    primaryColor: Color(0xff000000),
-    bottomAppBarColor: Color(0xffF5F5F5),
-    primaryColorLight: Color(0xffFFFFFF),
-    backgroundColor: Color(0xffEBEBEB),
-    selectedRowColor: Color(0xff000000),
-    primaryColorDark: Color(0xff767575),
-    colorScheme: ColorScheme.light(),
+    scaffoldBackgroundColor: const Color(0xffF5F5F5),
+    primaryColor: const Color(0xff000000),
+    bottomAppBarColor: const Color(0xffF5F5F5),
+    primaryColorLight: const Color(0xffFFFFFF),
+    backgroundColor: const Color(0xffEBEBEB),
+    selectedRowColor: const Color(0xff000000),
+    primaryColorDark: const Color(0xff767575),
+    colorScheme: const ColorScheme.light(),
   );
 }

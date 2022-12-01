@@ -135,6 +135,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   name: cartItem.prodname.toString(),
                   image: cartItem.thumbnail.toString(),
                   price: cartItem.price,
+                  qty: 1,
                   description: cartItem.description.toString(),
                 );
                 final CartItem = cartitems.firstWhere(
@@ -174,7 +175,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 ),
                                 child: Image.network(
                                   snapshot.data![index].thumbnail,
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -319,6 +320,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   name: cartItem.prodname.toString(),
                   image: cartItem.thumbnail.toString(),
                   price: cartItem.price,
+                  qty: 1,
                   description: cartItem.description.toString(),
                 );
                 final CartItem = cartitems.firstWhere(
@@ -361,7 +363,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: Image(
                                 image: NetworkImage(
                                     snapshot.data![index].thumbnail),
-                                fit: BoxFit.fill,
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),

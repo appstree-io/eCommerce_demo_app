@@ -30,7 +30,7 @@ class ProductDetailData {
   final double rating;
 
   @JsonKey(name: 'images')
-  final List images;
+  final List? images;
 
   ProductDetailData({
     required this.prodname,
@@ -41,7 +41,7 @@ class ProductDetailData {
     required this.thumbnail,
     required this.brand,
     required this.rating,
-    required this.images,
+    this.images,
   });
 
   factory ProductDetailData.fromJson(Map<String, dynamic> json) =>
