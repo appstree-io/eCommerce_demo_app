@@ -2,6 +2,8 @@
 
 The UI of this ecommerce mobile app is developed in flutter and designed in figma. The app includes main products page, detail page, category search page and shopping cart page.
 
+
+
 Home page and category page design was taken from this design file.
 
 https://www.figma.com/file/pseDCW8iNpIFlBhW2NXgua/Ecommerce-App-UI-Kit-(Community)?node-id=509%3A3606&t=L4Gg4jK7ARlnPDxf-0
