@@ -29,23 +29,8 @@ class MyApp extends StatelessWidget {
           home: const BottomBar(),
         );
       },
-      // child: MaterialApp(
-      //   debugShowCheckedModeBanner: false,
-      //   themeMode: themeprovider.themeMode,
-      //   darkTheme: MyThemes.darktheme,
-      //   theme: MyThemes.lighttheme,
-      //   home: const BottomBar(),
-      // ),
+     
     );
-    // return ChangeNotifierProvider(
-    //   create: (context) => CartProvider(),
-    //   child: MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     themeMode: ThemeMode.dark,
-    //     darkTheme: MyThemes.darktheme,
-    //     theme: MyThemes.lighttheme,
-    //     home: const BottomBar(),
-    //   ),
-    // );
+   
   }
 }
