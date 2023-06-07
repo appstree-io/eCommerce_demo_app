@@ -1,4 +1,4 @@
-# Ecommerce App with Provider
+# Flutter Ecommerce App
 
 The UI of this ecommerce mobile app is developed in flutter and designed in figma. The app includes main products page, detail page, category search page and shopping cart page.
 
