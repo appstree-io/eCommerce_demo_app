@@ -1,11 +1,10 @@
-import 'package:badges/badges.dart';
-import 'package:ecommerce_app/services/provider_cart.dart';
 import 'package:ecommerce_app/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../widgets/appbar.dart';
+
+import '../provider/provider_cart.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -17,71 +16,64 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    final cartitems = context.watch<CartProvider>().cartProd;
+    final cartitems = context.watch<CartProvider>().cartProducts;
     return Scaffold(
-      bottomNavigationBar: Container(
-        //height: 80,
-        child: BottomAppBar(
-          child: Container(
-            padding: EdgeInsets.fromLTRB(5, 10, 0, 0),
-            height: 100,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Total Items: ',
-                        style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).primaryColor),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Consumer<CartProvider>(builder: (context, cart, child) {
-                        return Row(children: [
-                          Text(
-                            '${cart.totalitems}',
-                            style: GoogleFonts.poppins(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 19,
-                            ),
-                          ),
-                        ]);
-                      }),
-                    ]),
-                const SizedBox(
-                  height: 8,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text(
+                  'Total Items: ',
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor),
                 ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Total Price:     ',
-                        style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).primaryColor),
+                const SizedBox(
+                  width: 5,
+                ),
+                Consumer<CartProvider>(builder: (context, cart, child) {
+                  return Row(children: [
+                    Text(
+                      '${cart.totalitems}',
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 19,
                       ),
-                      Consumer<CartProvider>(builder: (context, cart, child) {
-                        return Row(children: [
-                          Text(
-                            "\$ " '${cart.totalAmount}',
-                            style: GoogleFonts.poppins(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 19,
-                            ),
-                          ),
-                        ]);
-                      }),
-                    ]),
-              ],
-            ),
+                    ),
+                  ]);
+                }),
+              ]),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text(
+                  'Total Price:     ',
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor),
+                ),
+                Consumer<CartProvider>(builder: (context, cart, child) {
+                  return Row(children: [
+                    Text(
+                      "\$ " '${cart.totalAmount}',
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 19,
+                      ),
+                    ),
+                  ]);
+                }),
+              ]),
+            ],
           ),
         ),
       ),
@@ -105,18 +97,20 @@ class _CartPageState extends State<CartPage> {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 21),
                   child: Card(
-                    color: Theme.of(context).primaryColorLight,
+                    color:
+                        // Colors.transparent,
+                        Theme.of(context).primaryColorLight,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24.0),
                     ),
                     child: Container(
-                      width: 404,
+                      width: 400,
                       height: 116,
-                      foregroundDecoration: BoxDecoration(),
+                      foregroundDecoration: const BoxDecoration(),
                       child: Row(
                         children: [
                           SizedBox(
-                            width: 140,
+                            width: 130,
                             height: 115,
                             child: ClipRRect(
                               borderRadius: const BorderRadius.only(
@@ -274,7 +268,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                 );
               }), childCount: cartitems.length),
-            )
+            ),
           ],
         ),
       ),

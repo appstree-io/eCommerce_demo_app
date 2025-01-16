@@ -1,10 +1,10 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../Screens/cartpage.dart';
-import '../services/provider_cart.dart';
+import '../provider/provider_cart.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
@@ -12,13 +12,15 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     Key? key,
   }) : super(key: key);
-  Size get preferredSize => const Size.fromHeight(56);
+  @override
+  Size get preferredSize => const Size.fromHeight(60);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       leading: BackButton(color: Theme.of(context).primaryColor),
       title: title,
+      centerTitle: true,
       actions: [
         Padding(
           padding: const EdgeInsets.only(
@@ -30,7 +32,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
               left: 30,
               bottom: 0,
               top: 10,
-              child: Badge(
+              child: badge.Badge(
                 badgeContent: SizedBox(
                   child:
                       Consumer<CartProvider>(builder: (context, cart, child) {
@@ -38,7 +40,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
                       child: Text(
                         "${cart.count}",
                         style: GoogleFonts.poppins(
-                          color: Color(0xffFFFFFF),
+                          color: const Color(0xffFFFFFF),
                           fontSize: 12,
                         ),
                       ),

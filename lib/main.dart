@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/services/provider_cart.dart';
-import 'package:ecommerce_app/services/theme_provider.dart';
+import 'package:ecommerce_app/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../screens/bottom_bar.dart';
+import 'provider/provider_cart.dart';
 
 void main() => runApp(const MyApp());
 
@@ -29,8 +29,6 @@ class MyApp extends StatelessWidget {
           home: const BottomBar(),
         );
       },
-     
     );
-   
   }
 }

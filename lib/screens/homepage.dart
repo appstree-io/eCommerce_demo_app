@@ -1,12 +1,12 @@
 import 'package:ecommerce_app/model/cart_product_modal.dart';
 import 'package:ecommerce_app/model/product_modal.dart';
-import 'package:ecommerce_app/services/provider_cart.dart';
+import 'package:ecommerce_app/provider/provider_cart.dart';
 import 'package:ecommerce_app/widgets/toggle_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../screens/detail_page.dart';
+import 'product_detail_page.dart';
 import '../widgets/sliver_appbar.dart';
 import '../widgets/items.dart';
 import '../services/api_handler.dart';
@@ -22,7 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int currentIndex = 0;
-  List cardList = [Item3(), Item1(), Item2(), Item4()];
+  List cardList = [const Item3(), const Item1(), const Item2(), const Item4()];
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
@@ -33,89 +33,90 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final cartitems = context.watch<CartProvider>().cartProd;
+    final cartitems = context.watch<CartProvider>().cartProducts;
 
-    return Scaffold(
-      //bottomNavigationBar: BottomBar(),
-      body: Padding(
-        padding: const EdgeInsets.only(
-          left: 25,
-          right: 25,
-        ),
-        child: CustomScrollView(
-          slivers: [
-            const Appbar(),
-            SliverToBoxAdapter(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Toggle Light / Dark Theme ',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: Theme.of(context).primaryColor,
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(
+            left: 25,
+            right: 25,
+          ),
+          child: CustomScrollView(
+            slivers: [
+              const Appbar(),
+              SliverToBoxAdapter(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Toggle Light / Dark Theme ',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
+                    const ToggleThemeWidget(),
+                  ],
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 17,
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: SearchBox(),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 17,
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: promocarousel(),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 12,
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Text(
+                  'Featured',
+                  style: GoogleFonts.poppins(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
                   ),
-                  const ToggleThemeWidget(),
-                ],
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 17,
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SearchBox(),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 17,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: promocarousel(),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 12,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Text(
-                'Featured',
-                style: GoogleFonts.poppins(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
                 ),
               ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 5,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: featuredproducts(cartitems),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 21,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Text(
-                'All',
-                style: GoogleFonts.poppins(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 5,
                 ),
               ),
-            ),
-            allProducts(cartitems),
-          ],
+              SliverToBoxAdapter(
+                child: featuredproducts(cartitems),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 21,
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Text(
+                  'All',
+                  style: GoogleFonts.poppins(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              allProducts(cartitems),
+            ],
+          ),
         ),
       ),
     );
@@ -162,7 +163,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: Container(
                         width: 404,
                         height: 116,
-                        foregroundDecoration: BoxDecoration(),
+                        foregroundDecoration: const BoxDecoration(),
                         child: Row(
                           children: [
                             SizedBox(
@@ -289,9 +290,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         }
         return SliverToBoxAdapter(
           child: Center(
-            child: CircularProgressIndicator.adaptive(
+            child: CircularProgressIndicator(
               backgroundColor: Theme.of(context).primaryColor,
-              strokeWidth: 50,
+              //strokeWidth: 50,
             ),
           ),
         );
@@ -357,7 +358,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(18),
-                            child: Container(
+                            child: SizedBox(
                               height: 140,
                               width: 154,
                               child: Image(
@@ -448,9 +449,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           return const Text("Error");
         }
         return Center(
-          child: CircularProgressIndicator.adaptive(
+          child: CircularProgressIndicator(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            strokeWidth: 50,
+            // strokeWidth: 50,
           ),
         );
       },
@@ -465,8 +466,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             height: 160.0,
             viewportFraction: 1,
             autoPlay: false,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayInterval: const Duration(seconds: 3),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             pauseAutoPlayOnTouch: true,
             onPageChanged: (index, reason) {
@@ -479,7 +480,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             return Builder(builder: (BuildContext context) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Container(
+                child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.40,
                   width: MediaQuery.of(context).size.width * 0.91,
                   child: card,
@@ -501,7 +502,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(6),
-                        color: Color(0xffFFCB11),
+                        color: const Color(0xffFFCB11),
                       ),
                     )
                   : Container(

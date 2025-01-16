@@ -22,10 +22,10 @@ class EndButtonsDetailPage extends StatelessWidget {
                 vertical: 12,
               )),
               foregroundColor: MaterialStateProperty.all<Color>(
-                Color(0XffFFFFFF),
+                const Color(0XffFFFFFF),
               ),
               backgroundColor: MaterialStateProperty.all<Color>(
-                Color(0Xff340404),
+                const Color(0Xff340404),
               ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
@@ -48,9 +48,9 @@ class EndButtonsDetailPage extends StatelessWidget {
         child: ElevatedButton(
           style: ButtonStyle(
             foregroundColor:
-                MaterialStateProperty.all<Color>(Color(0xff340404)),
+                MaterialStateProperty.all<Color>(const Color(0xff340404)),
             backgroundColor:
-                MaterialStateProperty.all<Color>(Color(0xffFFEEC1)),
+                MaterialStateProperty.all<Color>(const Color(0xffFFEEC1)),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -69,7 +69,7 @@ class EndButtonsDetailPage extends StatelessWidget {
               const SizedBox(
                 width: 21,
               ),
-              Text("\$ " '${priceitem}'),
+              Text("\$ " '$priceitem'),
             ],
           ),
         ),

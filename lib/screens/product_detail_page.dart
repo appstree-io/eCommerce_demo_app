@@ -1,11 +1,10 @@
-import 'package:badges/badges.dart';
 import 'package:ecommerce_app/model/product_detail_model.dart';
 import 'package:ecommerce_app/services/api_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../widgets/appbar.dart';
-import '../services/provider_cart.dart';
+import '../provider/provider_cart.dart';
 import '../widgets/buttonsdetailpage.dart';
 
 class DetailPage extends StatefulWidget {
@@ -19,11 +18,17 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    final cartitems = context.watch<CartProvider>().cartProd;
+    final cartitems = context.watch<CartProvider>().cartProducts;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: const AppBarCustom(
-        title: Text(''),
+      appBar: AppBarCustom(
+        title: Text(
+          'Detail',
+          style: TextStyle(
+            color:
+                Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -42,7 +47,7 @@ class _DetailPageState extends State<DetailPage> {
 
                   return SliverToBoxAdapter(
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
@@ -54,7 +59,7 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 333,
                                   width: MediaQuery.of(context).size.width - 32,
                                   decoration: BoxDecoration(
-                                      color: Color(0xff767575),
+                                      color: const Color(0xff767575),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
@@ -182,10 +187,10 @@ class _DetailPageState extends State<DetailPage> {
                             children: [
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(32, 32),
-                                  primary: Color(0xff000000),
+                                  fixedSize: const Size(32, 32),
+                                  backgroundColor: const Color(0xff000000),
                                   // onSurface: Color(0XffFFEEC1),
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                 ),
                                 onPressed: () {},
                                 child: Text(
@@ -198,10 +203,10 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(32, 32),
-                                  primary: Color(0xffFFFFFF),
+                                  fixedSize: const Size(32, 32),
+                                  backgroundColor: const Color(0xffFFFFFF),
                                   // onSurface: Color(0XffFFEEC1),
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                 ),
                                 onPressed: () {},
                                 child: Text(
@@ -214,10 +219,10 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(32, 32),
-                                  primary: Color(0xff2C2C2C),
+                                  fixedSize: const Size(32, 32),
+                                  backgroundColor: const Color(0xff2C2C2C),
                                   // onSurface: Color(0XffFFEEC1),
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                 ),
                                 onPressed: () {},
                                 child: Text(
@@ -230,10 +235,10 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(32, 32),
-                                  primary: Colors.blue.shade600,
+                                  fixedSize: const Size(32, 32),
+                                  backgroundColor: Colors.blue.shade600,
                                   // onSurface: Color(0XffFFEEC1),
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                 ),
                                 onPressed: () {},
                                 child: Text(
@@ -248,11 +253,14 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         ],
                         const SizedBox(
-                          height: 16,
+                          height: 20,
                         ),
                         EndButtonsDetailPage(
                           priceitem: snapshot.data!.price,
-                        )
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
                       ],
                     ),
                   );
@@ -261,9 +269,9 @@ class _DetailPageState extends State<DetailPage> {
                 }
                 return const SliverToBoxAdapter(
                   child: Center(
-                    child: CircularProgressIndicator.adaptive(
+                    child: CircularProgressIndicator(
                       backgroundColor: Colors.white,
-                      strokeWidth: 50,
+                      //strokeWidth: 50,
                     ),
                   ),
                 );

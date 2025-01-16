@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/services/theme_provider.dart';
+import 'package:ecommerce_app/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,13 +7,13 @@ class ToggleThemeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeprovider = Provider.of<ThemeProvider>(context);
-    final provider = Provider.of<ThemeProvider>(context, listen: false);
+    final themeprovider = Provider.of<ThemeProvider>(context, listen: false);
+
     return Switch.adaptive(
-      activeColor: Color(0xffFFCB11),
+      activeColor: const Color(0xffFFCB11),
       value: themeprovider.isDarkMode,
       onChanged: (value) {
-        provider.toggleTheme(value);
+        themeprovider.toggleTheme(value);
       },
     );
   }

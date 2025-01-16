@@ -29,7 +29,7 @@ class _SearchPageState extends State<SearchPage> {
                 child: Row(
                   children: [
                     const SizedBox(
-                      width: 300,
+                      width: 280,
                       height: 57,
                       child: SearchBox(),
                     ),
@@ -105,7 +105,7 @@ class _SearchPageState extends State<SearchPage> {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(18),
-                                    child: Container(
+                                    child: SizedBox(
                                       height: 110,
                                       width: 154,
                                       child: Image(

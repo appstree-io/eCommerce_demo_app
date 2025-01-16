@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'product_detail_model.g.dart';
@@ -8,7 +7,7 @@ class ProductDetailData {
   @JsonKey(name: 'title')
   final String? prodname;
 
-  @JsonKey(name: 'price')
+  @JsonKey(name: 'price', defaultValue: 0)
   final double price;
 
   @JsonKey(name: 'id')

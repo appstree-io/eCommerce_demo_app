@@ -21,11 +21,11 @@ class SearchBox extends StatelessWidget {
         ),
         suffix: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.mic_none_rounded),
+          icon: const Icon(Icons.mic_none_rounded),
           color: Theme.of(context).selectedRowColor,
         ),
         prefix: Padding(
-          padding: EdgeInsets.fromLTRB(15.0, 6.0, 9.0, 6.0),
+          padding: const EdgeInsets.fromLTRB(15.0, 6.0, 9.0, 6.0),
           child: Icon(
             Icons.search,
             color: Theme.of(context).selectedRowColor,

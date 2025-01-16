@@ -19,9 +19,9 @@ class Item1 extends StatelessWidget {
               Color(0xffffcc66),
             ]),
       ),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text("Data",
               style: TextStyle(
                   color: Colors.white,
@@ -50,9 +50,9 @@ class Item2 extends StatelessWidget {
             stops: [0.3, 1],
             colors: [Color(0xff5f2c82), Color(0xff49a09d)]),
       ),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text("Data",
               style: TextStyle(
                   color: Colors.white,
@@ -74,8 +74,8 @@ class Item3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xffADED5C),
+      decoration: const BoxDecoration(
+        color: Color(0xffADED5C),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,8 +89,8 @@ class Item3 extends StatelessWidget {
             children: [
               Text(
                 '55%',
-                style: GoogleFonts?.raleway(
-                  color: Color(0xff000000),
+                style: GoogleFonts.raleway(
+                  color: const Color(0xff000000),
                   fontSize: 38,
                   fontWeight: FontWeight.bold,
                 ),
@@ -100,8 +100,8 @@ class Item3 extends StatelessWidget {
               ),
               Text(
                 'Discount',
-                style: GoogleFonts?.poppins(
-                  color: Color(0xff000000),
+                style: GoogleFonts.poppins(
+                  color: const Color(0xff000000),
                   fontSize: 21.49,
                 ),
               ),
@@ -110,8 +110,8 @@ class Item3 extends StatelessWidget {
               ),
               Text(
                 'Wireless Noise',
-                style: GoogleFonts?.poppins(
-                  color: Color(0xff000000),
+                style: GoogleFonts.poppins(
+                  color: const Color(0xff000000),
                   fontSize: 14.59,
                 ),
               ),
@@ -136,9 +136,9 @@ class Item4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text("Data",
               style: TextStyle(
                   color: Colors.white,

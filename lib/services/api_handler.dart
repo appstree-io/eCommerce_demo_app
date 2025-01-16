@@ -1,9 +1,7 @@
 import 'dart:convert';
-import 'package:ecommerce_app/model/category.dart';
 import 'package:ecommerce_app/model/product_detail_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:ecommerce_app/model/product_modal.dart';
-import '../model/product_modal.dart';
 
 Future<List<ProductData>> fetchProductdata() async {
   final response = await http.get(Uri.parse('https://dummyjson.com/products'));
